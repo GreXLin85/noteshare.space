@@ -47,7 +47,7 @@ export async function postNoteController(
   }
 
   // Create note object
-  const EXPIRE_WINDOW_DAYS = 30;
+  const EXPIRE_WINDOW_DAYS = notePostRequest.expiration;
   const secret_token = generateToken();
 
   const note = {
