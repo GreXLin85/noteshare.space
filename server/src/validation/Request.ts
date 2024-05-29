@@ -1,6 +1,7 @@
 import {
   IsBase64,
   IsHexadecimal,
+  IsInt,
   IsNotEmpty,
   Matches,
   ValidateIf,
@@ -31,6 +32,9 @@ export class NotePostRequest extends NoteRequestBody {
 
   @Matches("^v[0-9]+$")
   crypto_version: string = "v1";
+
+  @IsInt()
+  expiration: number = 31;
 }
 
 export class NoteDeleteRequest extends NoteRequestBody {
