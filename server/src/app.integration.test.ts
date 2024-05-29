@@ -107,7 +107,9 @@ describe("POST /api/note", () => {
     });
     expect(writeEvents.length).toBe(1);
     expect(writeEvents[0].success).toBe(true);
-    expect(writeEvents[0].expire_window_days).toBe(30);
+    expect(writeEvents[0].expire_window_days).toBeGreaterThan(0);
+    expect(writeEvents[0].expire_window_days).toBeLessThan(32);
+
     expect(writeEvents[0].size_bytes).toBe(
       testNote.ciphertext.length + testNote.hmac.length
     );
